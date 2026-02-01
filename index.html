@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ОТАМАН | Експорт Бетону в ЄС</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cat: {
+                            yellow: '#FFCD11', // CAT Yellow
+                            black: '#231F20',
+                            dark: '#1A1A1A',
+                            gray: '#595959',
+                            light: '#F2F2F2'
+                        }
+                    },
+                    fontFamily: {
+                        oswald: ['Oswald', 'sans-serif'],
+                        roboto: ['Roboto', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'striped': 'repeating-linear-gradient(45deg, #000, #000 10px, #FFCD11 10px, #FFCD11 20px)',
+                        'concrete': 'url("https://images.unsplash.com/photo-1518391846015-55a9cc003b25?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")',
+                    },
+                    animation: {
+                        'flow-left': 'flowLeft 6s linear infinite',
+                    },
+                    keyframes: {
+                        flowLeft: {
+                            '0%': { left: '100%' },
+                            '100%': { left: '-15%' }, 
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        h1, h2, h3, h4, .btn-text, nav { font-family: 'Oswald', sans-serif; }
+        
+        .clip-slant {
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        
+        .btn-industrial {
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        
+        .btn-industrial:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 0 #000;
+        }
+
+        /* Truck Image Styling */
+        .truck-frame {
+            border-bottom: 8px solid #FFCD11;
+            position: relative;
+        }
+        .truck-frame::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 50px;
+            height: 50px;
+            border-top: 4px solid #FFCD11;
+            border-right: 4px solid #FFCD11;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-cat-black">
+
+    <!-- Top Bar -->
+    <div class="bg-cat-black text-white py-2 text-xs md:text-sm font-roboto border-b-4 border-cat-yellow">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-2 md:gap-4 truncate">
+                <span><i class="fas fa-map-marker-alt text-cat-yellow mr-2"></i>Житомирська обл</span>
+                <span class="hidden md:inline text-gray-400">|</span>
+                <span class="hidden md:inline"><i class="fas fa-truck-loading text-cat-yellow mr-2"></i>Якісний бетон</span>
+            </div>
+            <div class="font-bold tracking-wider whitespace-nowrap pl-2">Тел. 097 858 46 56</div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center flex-wrap">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 md:w-12 md:h-12 bg-cat-black rounded-full flex items-center justify-center border-2 border-cat-yellow relative overflow-hidden flex-shrink-0">
+                    <svg viewBox="0 0 100 100" class="w-6 h-6 md:w-8 md:h-8">
+                        <path d="M45,65 L35,25 L90,30 L95,65 Z" fill="#FFCD11"/>
+                        <path d="M50,45 L90,48" stroke="#231F20" stroke-width="3"/>
+                        <path d="M5,65 L5,35 L30,35 L35,65 Z" fill="#595959"/>
+                        <rect x="5" y="38" width="15" height="12" fill="#FFCD11"/>
+                        <rect x="2" y="65" width="96" height="8" fill="#231F20"/>
+                        <circle cx="20" cy="78" r="8" fill="#FFCD11" stroke="#231F20" stroke-width="2"/>
+                        <circle cx="55" cy="78" r="8" fill="#FFCD11" stroke="#231F20" stroke-width="2"/>
+                        <circle cx="80" cy="78" r="8" fill="#FFCD11" stroke="#231F20" stroke-width="2"/>
+                    </svg>
+                </div>
+                <div>
+                    <span class="text-2xl md:text-3xl font-bold uppercase tracking-tighter leading-none block">ОТАМАН</span>
+                    <span class="text-[10px] md:text-xs font-bold text-gray-500 uppercase tracking-widest block">Постачальник бетону</span>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex gap-8 font-bold uppercase text-sm tracking-wide">
+                <a href="#about" class="hover:text-cat-yellow transition-colors">Про нас</a>
+                <a href="#products" class="hover:text-cat-yellow transition-colors">Продукція</a>
+                <a href="#logistics" class="hover:text-cat-yellow transition-colors">Логістика</a>
+                <a href="#contact" class="hover:text-cat-yellow transition-colors">Контакти</a>
+            </div>
+
+            <!-- CTA Desktop -->
+            <a href="#contact" class="hidden md:block bg-cat-yellow text-cat-black px-6 py-2 font-bold uppercase hover:bg-black hover:text-cat-yellow transition-all clip-slant">
+                Замовити розрахунок
+            </a>
+            
+            <!-- Mobile Menu Btn -->
+            <button onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="md:hidden text-2xl text-cat-black focus:outline-none">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="hidden w-full md:hidden mt-4 border-t border-gray-100 bg-white absolute top-full left-0 shadow-xl pb-4">
+                <div class="flex flex-col space-y-4 p-4 font-bold uppercase text-sm text-center">
+                    <a href="#about" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 hover:text-cat-yellow">Про нас</a>
+                    <a href="#products" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 hover:text-cat-yellow">Продукція</a>
+                    <a href="#logistics" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 hover:text-cat-yellow">Логістика</a>
+                    <a href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block py-2 hover:text-cat-yellow">Контакти</a>
+                    <a href="#contact" onclick="document.getElementById('mobile-menu').classList.add('hidden')" class="block bg-cat-yellow text-cat-black px-6 py-3 mt-2 clip-slant">
+                        Замовити розрахунок
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative bg-cat-dark text-white min-h-[500px] md:min-h-[600px] flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-concrete bg-cover bg-center opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-cat-dark via-cat-dark/90 to-transparent"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 grid md:grid-cols-2 gap-8 md:gap-12 items-center py-12 md:py-20">
+            <!-- Text Content -->
+            <div class="text-center md:text-left">
+                <div class="inline-block bg-cat-yellow text-cat-black px-3 py-1 font-bold uppercase text-xs md:text-sm mb-4 tracking-wider">
+                    <i class="fas fa-shield-alt mr-2"></i>Надійність граніту
+                </div>
+                <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold uppercase leading-tight mb-4 md:mb-6">
+                    Міцний фундамент <br>
+                    <span class="text-cat-yellow">Вашого бізнесу</span>
+                </h1>
+                <p class="text-gray-300 text-base md:text-lg mb-6 md:mb-8 max-w-md mx-auto md:mx-0 font-roboto border-l-0 md:border-l-4 border-cat-yellow md:pl-4">
+                    Виробництво високоякісного бетону зі швидкою доставкою по Житомитрській області.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#products" class="bg-cat-yellow text-cat-black px-6 py-3 md:px-8 md:py-4 font-bold uppercase text-center btn-industrial text-sm md:text-base">
+                        Каталог марок
+                    </a>
+                    <a href="#contact" class="border-2 border-white text-white px-6 py-3 md:px-8 md:py-4 font-bold uppercase text-center hover:bg-white hover:text-cat-black transition-all btn-industrial text-sm md:text-base">
+                        Зв'язатися
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Image -->
+            <div class="relative mt-6 md:mt-0">
+                <div class="truck-frame relative z-10 shadow-2xl">
+                    <img src="https://i.ibb.co/LdTYSj1L/new-img.jpg" alt="Отаман Бетоновоз" class="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700 max-h-[300px] md:max-h-none">
+                    <div class="absolute bottom-0 right-0 bg-cat-yellow text-cat-black px-3 py-1 md:px-4 md:py-2 font-bold font-oswald text-sm md:text-xl">
+                        #OTAMAN_BETON
+                    </div>
+                </div>
+                <!-- Decor hidden on mobile to save space -->
+                <div class="hidden md:block absolute -z-10 top-10 -right-10 w-full h-full border-4 border-cat-gray opacity-30"></div>
+                <div class="hidden md:block absolute -z-10 -bottom-10 -left-10 w-40 h-40 bg-striped opacity-20"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats Bar -->
+    <div class="bg-cat-yellow py-6 md:py-8">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center divide-x divide-cat-black/10">
+            <div class="p-2">
+                <div class="text-3xl md:text-4xl font-bold font-oswald">3</div>
+                <div class="text-xs md:text-sm font-bold uppercase mt-1">Бетоновози</div>
+            </div>
+            <div class="p-2">
+                <div class="text-3xl md:text-4xl font-bold font-oswald">TOP</div>
+                <div class="text-xs md:text-sm font-bold uppercase mt-1">Стандарти</div>
+            </div>
+            <div class="p-2">
+                <div class="text-3xl md:text-4xl font-bold font-oswald">24/7</div>
+                <div class="text-xs md:text-sm font-bold uppercase mt-1">Відвантаження</div>
+            </div>
+            <div class="p-2">
+                <div class="text-3xl md:text-4xl font-bold font-oswald">100%</div>
+                <div class="text-xs md:text-sm font-bold uppercase mt-1">Логістика</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-12 md:py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-8 md:gap-12">
+                <div class="md:w-1/3 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase mb-4 md:mb-6 md:border-l-8 border-cat-yellow md:pl-4 leading-none inline-block md:block border-b-4 md:border-b-0 pb-2 md:pb-0">
+                        Сила<br class="hidden md:inline"> Характер<br class="hidden md:inline"> Якість
+                    </h2>
+                    <p class="text-gray-600 mb-6 font-roboto text-sm md:text-base">
+                        ТОВ "Отаман" —  гарантуємо міцність ваших конструкцій.
+                    </p>
+                    
+                </div>
+                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                    <div class="bg-gray-100 p-6 md:p-8 border-b-4 border-cat-gray hover:border-cat-yellow transition-colors group">
+                        <i class="fas fa-cogs text-3xl md:text-4xl text-gray-400 group-hover:text-cat-yellow mb-3 md:mb-4"></i>
+                        <h3 class="text-lg md:text-xl font-bold uppercase mb-2">Технології</h3>
+                        <p class="text-sm text-gray-600">Сучасні добавки та пластифікатори для транспортування.</p>
+                    </div>
+                    <div class="bg-gray-100 p-6 md:p-8 border-b-4 border-cat-gray hover:border-cat-yellow transition-colors group">
+                        <i class="fas fa-globe-europe text-3xl md:text-4xl text-gray-400 group-hover:text-cat-yellow mb-3 md:mb-4"></i>
+                        <h3 class="text-lg md:text-xl font-bold uppercase mb-2">Своє, рідне </h3>
+                        <p class="text-sm text-gray-600">100% український продукт. </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+        </div>
+    </section>
+
+    <!-- Products -->
+    <section id="products" class="py-12 md:py-20 bg-cat-light">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10 md:mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold uppercase text-cat-black">Наша Продукція</h2>
+                <p class="text-gray-600 mt-2 text-sm md:text-base">Бетонні суміші будь-якого класу міцності</p>
+            </div>
+
+            <div class="grid sm:grid-cols-1 md:grid-cols-1 gap-6 md:gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white shadow-lg border-t-4 border-cat-yellow">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-xl md:text-2xl font-bold uppercase mb-2">Важкий Бетон</h3>
+                        <div class="text-cat-yellow font-bold text-base md:text-lg mb-4">C16/20 - C25/30</div>
+                        <p class="text-gray-600 text-sm mb-6">Для фундаментів, мостів та гідротехнічних споруд. Висока морозостійкість.</p>
+                        <a href="#contact" class="text-cat-black font-bold uppercase text-sm border-b-2 border-cat-yellow hover:bg-cat-yellow px-1 transition-colors">Телефонуйте для прайс-листу</a>
+                    </div>
+                </div>
+                
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="bg-cat-black text-white py-12 md:py-20 relative">
+        <div class="absolute top-0 left-0 w-full h-2 bg-striped"></div>
+        
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-10 md:gap-16">
+                <!-- Info -->
+                <div class="order-2 md:order-1">
+                    <h2 class="text-3xl md:text-4xl font-bold uppercase mb-6 md:mb-8 text-cat-yellow">Зв'язатися з нами</h2>
+                    <p class="text-gray-400 mb-6 md:mb-8 font-roboto text-sm md:text-base">Готові обговорити умови співпраці? Зателефонуйте нам!</p>
+                    
+                    <div class="space-y-4 md:space-y- font-oswald text-base md:text-lg tracking-wide">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-cat-yellow mt-1 w-6 md:w-8"></i>
+                            <div>
+                                <span class="block text-gray-500 text-sm">Адреса :</span>
+                               Провулок Миколи Герасимчука 11А, Житомирська обл., Україна
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-phone text-cat-yellow mt-1 w-6 md:w-8"></i>
+                            <div>
+                                <span class="block text-gray-500 text-sm">Телефон:</span>
+                                +38 (097) 8584656
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-envelope text-cat-yellow mt-1 w-6 md:w-8"></i>
+                            <div>
+                                <span class="block text-gray-500 text-sm">Email:</span>
+                                otomanbeton@gmail.com
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cat-dark text-gray-500 py-6 md:py-8 text-sm font-roboto border-t border-gray-800">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 md:gap-0">
+            <div>
+                &copy; 2026 ТОВ "ОТАМАН". Всі права захищено.
+            </div>
+
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>Put your HTML text here
